@@ -1,12 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './User.scss';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { selectUser, unselectUser } from '../../redux/actions';
 import classNames from 'classnames';
 
 export const User = ({ user }) => {
   const dispatch = useDispatch();
-  const selectedUsers = useSelector(state => state.users.selectedUsers);
 
   const handleSelectUser = () => {
     if (user.isSelected) {
