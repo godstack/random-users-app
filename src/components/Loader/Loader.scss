@@ -1,25 +1,38 @@
 $bg-color: #464444;
 
+@mixin transform() {
+  -webkit-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  transform: translateZ(0);
+}
+
+@mixin animation() {
+  -webkit-animation: load1 1s infinite ease-in-out;
+  animation: load1 1s infinite ease-in-out;
+}
+
+@mixin animation-delay($property) {
+  -webkit-animation-delay: $property;
+  animation-delay: $property;
+}
+
 .loader,
 .loader:before,
 .loader:after {
   background: $bg-color;
-  -webkit-animation: load1 1s infinite ease-in-out;
-  animation: load1 1s infinite ease-in-out;
+  @include animation();
   width: 1em;
   height: 4em;
 }
 .loader {
+  @include transform();
   color: $bg-color;
   text-indent: -9999em;
   margin: 88px auto;
   position: relative;
   font-size: 11px;
-  -webkit-transform: translateZ(0);
-  -ms-transform: translateZ(0);
-  transform: translateZ(0);
-  -webkit-animation-delay: -0.16s;
-  animation-delay: -0.16s;
+
+  @include animation-delay(-0.16s);
 }
 .loader:before,
 .loader:after {
@@ -29,8 +42,7 @@ $bg-color: #464444;
 }
 .loader:before {
   left: -1.5em;
-  -webkit-animation-delay: -0.32s;
-  animation-delay: -0.32s;
+  @include animation-delay(-0.32s);
 }
 .loader:after {
   left: 1.5em;
