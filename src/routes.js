@@ -1,11 +1,11 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
-import { FetchedUsers } from './components/FetchedUsers/FetchedUsers';
+import { MainPage } from './pages/MainPage/MainPage';
 
 export const useRoutes = () => {
   return (
     <Switch>
-      <Route exact path='/' component={FetchedUsers} />
+      <Route exact path='/' component={MainPage} />
     </Switch>
   );
 };

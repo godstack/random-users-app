@@ -3,6 +3,7 @@ import { User } from '../User/User';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchUsers } from '../../redux/actions';
 import { Loader } from '../Loader/Loader';
+import './UserList.scss';
 
 export const FetchedUsers = ({ fetchedUsers, selectedUsers }) => {
   const dispatch = useDispatch();
@@ -15,11 +16,11 @@ export const FetchedUsers = ({ fetchedUsers, selectedUsers }) => {
   }
 
   return (
-    <>
+    <section className='user-list'>
       {users && users.map(user => <User key={user.email} user={user} />)}
       <button className='btn' onClick={() => dispatch(fetchUsers())}>
         Upload more
       </button>
-    </>
+    </section>
   );
 };

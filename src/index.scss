@@ -66,3 +66,45 @@ textarea,
 select {
   font: inherit;
 }
+
+.btn {
+  padding: 15px 30px;
+  color: #162daf;
+  font-family: 'Montserrat Alternates', sans-serif;
+  border: 3px solid;
+  background: white;
+  outline: none;
+  cursor: pointer;
+
+  .text {
+    position: relative;
+    display: inline;
+    vertical-align: middle;
+    font-size: 23px;
+    font-weight: 600;
+    z-index: 5;
+
+    &:after {
+      content: '';
+      position: absolute;
+      bottom: auto;
+      top: 0;
+      left: 0;
+      height: 0%;
+      width: 100%;
+      background: #5588d4;
+      z-index: -1;
+      transition: 0.3s ease;
+    }
+  }
+
+  &:hover .text:after {
+    height: 100%;
+    bottom: 0;
+    top: auto;
+  }
+}
+
+.bnt:focus {
+  border: none;
+}

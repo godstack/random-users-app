@@ -1,18 +1,14 @@
-import { FETCH_USERS, SHOW_LOADER, HIDE_LOADER } from './types';
+import {
+  SHOW_LOADER,
+  HIDE_LOADER,
+  REQUEST_USERS,
+  SELECT_USER,
+  UNSELECT_USER
+} from './types';
 
-export const fetchUsers = () => {
-  return async dispatch => {
-    try {
-      dispatch(showLoader());
-      const response = await fetch('https://randomuser.me/api/?results=20');
-      const json = await response.json();
-      const users = json.results;
-
-      dispatch({ type: FETCH_USERS, payload: users });
-      dispatch(hideLoader());
-    } catch (e) {}
-  };
-};
+export const fetchUsers = () => ({
+  type: REQUEST_USERS
+});
 
 export const showLoader = () => {
   return {
@@ -23,5 +19,19 @@ export const showLoader = () => {
 export const hideLoader = () => {
   return {
     type: HIDE_LOADER
+  };
+};
+
+export const selectUser = userId => {
+  return {
+    type: SELECT_USER,
+    payload: userId
+  };
+};
+
+export const unselectUser = userId => {
+  return {
+    type: UNSELECT_USER,
+    payload: userId
   };
 };
