@@ -1,0 +1,33 @@
+.page-not-found {
+  position: absolute;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  img {
+    height: 350px;
+    width: 350px;
+  }
+
+  .link-text {
+    font-size: 3rem;
+    text-transform: uppercase;
+    font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
+    color: rgb(17, 145, 74);
+    transition: 0.3s ease-in-out;
+    cursor: pointer;
+
+    &:hover {
+      color: rgb(7, 54, 28);
+      text-decoration: underline;
+    }
+  }
+
+  a {
+    text-decoration: none;
+  }
+}
