@@ -10,7 +10,7 @@ function App() {
   return (
     <Router>
       <Header />
-      <main>{routes}</main>
+      <main className='main'>{routes}</main>
       <Footer />
     </Router>
   );

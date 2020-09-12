@@ -35,6 +35,9 @@ body {
   scroll-behavior: smooth;
   text-rendering: optimizeSpeed;
   line-height: 1.5;
+  position: relative;
+  min-height: 100vh;
+  box-sizing: border-box;
 }
 
 /* Удаляем стандартную стилизацию для всех ul и il, у которых есть атрибут class*/
@@ -82,7 +85,7 @@ select {
     vertical-align: middle;
     font-size: 23px;
     font-weight: 600;
-    z-index: 5;
+    z-index: 1;
 
     &:after {
       content: '';
@@ -107,4 +110,8 @@ select {
 
 .bnt:focus {
   border: none;
+}
+
+.main {
+  padding-bottom: 100px;
 }
