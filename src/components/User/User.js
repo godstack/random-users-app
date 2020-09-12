@@ -17,23 +17,29 @@ export const User = ({ user }) => {
 
   return (
     <section className='user-item'>
-      <div
-        className='user-item_image'
-        style={{ backgroundImage: `url('${user.picture.thumbnail}')` }}
-      ></div>
+      <div className='user'>
+        <div
+          className='user-item__image'
+          style={{ backgroundImage: `url('${user.picture.thumbnail}')` }}
+        ></div>
 
-      <div className='user-item__info'>
-        {user.name.first} {user.name.last}
+        <div className='user-item__info'>
+          {user.name.first} {user.name.last}
+        </div>
+
+        <button
+          className={classNames('btn', 'btn-user', {
+            'btn-select': !user.isSelected,
+            'btn-unselect': user.isSelected
+          })}
+          onClick={handleSelectUser}
+        >
+          <div className='text'>{user.isSelected ? 'Unselect' : 'Select'}</div>
+        </button>
       </div>
-      <button
-        className={classNames('btn', 'btn-user', {
-          'btn-select': !user.isSelected,
-          'btn-unselect': user.isSelected
-        })}
-        onClick={handleSelectUser}
-      >
-        <div className='text'>{user.isSelected ? 'Unselect' : 'Select'}</div>
-      </button>
+      <div className='selection-time'>
+        {user.selectionTime ? `Selection time: ${user.selectionTime}` : null}
+      </div>
     </section>
   );
 };

@@ -20,7 +20,7 @@ export const FetchedUsers = ({ fetchedUsers, selectedUsers }) => {
       <h2 className='user-list__title'>Fetched users</h2>
       {users && users.map(user => <User key={user.email} user={user} />)}
       <button className='btn btn-upload' onClick={() => dispatch(fetchUsers())}>
-        {users.length ? 'Upload more' : 'Upload'}
+        <div className='text'>{users.length ? 'Upload more' : 'Upload'}</div>
       </button>
     </section>
   );

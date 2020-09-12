@@ -18,7 +18,11 @@ async function fetchUsers() {
   const response = await fetch('https://randomuser.me/api/?results=20');
   const json = await response.json();
 
-  const users = json.results.map(el => ({ ...el, isSelected: false }));
+  const users = json.results.map(el => ({
+    ...el,
+    isSelected: false,
+    selectionTime: null
+  }));
 
   return users;
 }

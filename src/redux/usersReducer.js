@@ -1,4 +1,5 @@
 import { FETCH_USERS, SELECT_USER, UNSELECT_USER } from './types';
+import { formatTime } from '../formatTime';
 
 const initialState = {
   fetchedUsers: [],
@@ -21,6 +22,9 @@ export const usersReducer = (state = initialState, action) => {
       fetchedUsers.map(user => {
         if (user.login.uuid === action.payload) {
           user.isSelected = true;
+
+          const date = new Date();
+          user.selectionTime = formatTime(date);
         }
 
         return user;
@@ -41,6 +45,7 @@ export const usersReducer = (state = initialState, action) => {
       fetchedUsers.map(user => {
         if (user.login.uuid === action.payload) {
           user.isSelected = false;
+          user.selectionTime = null;
         }
 
         return user;
