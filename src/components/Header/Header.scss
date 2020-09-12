@@ -13,11 +13,12 @@
 
   &:hover {
     height: 100px;
-    transition-duration: 1s;
+    transition: 1s ease-out;
   }
 
   .header__info {
     transform: skewY(-1deg);
+    transform-origin: top right;
     font-size: 1.5rem;
   }
 }
