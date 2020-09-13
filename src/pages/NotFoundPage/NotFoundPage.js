@@ -6,9 +6,11 @@ import './NotFoundPage.scss';
 export const NotFoundPage = () => {
   return (
     <div className='page-not-found'>
-      <img src={svg} />
+      <img src={svg} alt='page not found' />
       <Link to='/'>
-        <span className='link-text'>Back to lists</span>
+        <span className='link-text'>
+          <i className='fas fa-backward'></i> Back to lists
+        </span>
       </Link>
     </div>
   );

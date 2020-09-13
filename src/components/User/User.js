@@ -3,9 +3,11 @@ import './User.scss';
 import { useDispatch } from 'react-redux';
 import { selectUser, unselectUser } from '../../redux/actions';
 import classNames from 'classnames';
+import { useHistory } from 'react-router-dom';
 
 export const User = ({ user }) => {
   const dispatch = useDispatch();
+  const history = useHistory();
 
   const handleSelectUser = () => {
     if (user.isSelected) {
@@ -15,15 +17,20 @@ export const User = ({ user }) => {
     }
   };
 
+  const handleRedirectToDetailsPage = () => {
+    history.push(`/user/${user.login.uuid}`);
+  };
+
   return (
     <section className='user-item'>
       <div className='user'>
         <div
+          onClick={handleRedirectToDetailsPage}
           className='user-item__image'
           style={{ backgroundImage: `url('${user.picture.thumbnail}')` }}
         ></div>
 
-        <div className='user-item__info'>
+        <div className='user-item__info' onClick={handleRedirectToDetailsPage}>
           {user.name.first} {user.name.last}
         </div>
 

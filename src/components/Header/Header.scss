@@ -7,13 +7,33 @@
   margin-bottom: 20px;
   font-family: 'Arial Narrow Bold', sans-serif;
   background: lightblue;
-  position: relative;
+  position: absolute;
+  width: 100%;
+
   transform: skewY(1deg);
   transform-origin: top right;
 
   &:hover {
     height: 100px;
     transition: 1s ease-out;
+  }
+
+  .invisible-link {
+    display: none;
+  }
+
+  .header__link {
+    position: absolute;
+    left: 40px;
+    top: 30px;
+
+    .link__text {
+      color: black;
+    }
+
+    a {
+      text-decoration: none;
+    }
   }
 
   .header__info {

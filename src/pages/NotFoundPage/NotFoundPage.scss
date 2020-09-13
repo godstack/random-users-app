@@ -1,8 +1,4 @@
 .page-not-found {
-  position: absolute;
-  top: 0;
-  width: 100vw;
-  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -23,7 +19,6 @@
 
     &:hover {
       color: rgb(7, 54, 28);
-      text-decoration: underline;
     }
   }
 
