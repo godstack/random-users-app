@@ -7,13 +7,13 @@ import {
 } from '../actions';
 import { FILTER_SELECTED_USERS, FILTER_FETCHED_USERS } from '../types';
 
-function* filterFetchedSagaWorker(args) {
+function* filterFetchedSagaWorker() {
   yield put(showFetchingLoader());
   yield delay(250);
   yield put(hideFetchingLoader());
 }
 
-function* filterSelectedSagaWorker(args) {
+function* filterSelectedSagaWorker() {
   yield put(showSelectingLoader());
   yield delay(250);
   yield put(hideSelectingLoader());
