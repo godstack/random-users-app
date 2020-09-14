@@ -7,7 +7,8 @@ import { rootReducer } from './redux/rootReducer';
 import { Provider } from 'react-redux';
 import createSagaMiddleware from 'redux-saga';
 import './index.scss';
-import { sagaWatcher } from './redux/sagas';
+import { fetchSagaWatcher } from './redux/sagas/fetchSaga';
+import { filterSagaWatcher } from './redux/sagas/filterSelectedSaga';
 
 const saga = createSagaMiddleware();
 
@@ -19,7 +20,8 @@ const store = createStore(
   )
 );
 
-saga.run(sagaWatcher);
+saga.run(fetchSagaWatcher);
+saga.run(filterSagaWatcher);
 
 const app = (
   <Provider store={store}>

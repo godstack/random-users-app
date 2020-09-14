@@ -47,8 +47,6 @@ export const UserDetailsPage = () => {
     }
   }, [user, history]);
 
-  console.log(user);
-
   return (
     <div className='user-details'>
       <div
@@ -60,6 +58,7 @@ export const UserDetailsPage = () => {
       <div className='icons'>
         {icons.map((el, i) => (
           <i
+            key={i}
             className={classNames(el, { active: i === index })}
             onClick={() => setIndex(i)}
           ></i>

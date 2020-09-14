@@ -1,8 +1,8 @@
 import { takeEvery, put, call } from 'redux-saga/effects';
-import { REQUEST_USERS, FETCH_USERS } from './types';
-import { showLoader, hideLoader } from './actions';
+import { REQUEST_USERS, FETCH_USERS } from '../types';
+import { showLoader, hideLoader } from '../actions';
 
-export function* sagaWatcher() {
+export function* fetchSagaWatcher() {
   yield takeEvery(REQUEST_USERS, sagaWorker);
 }
 

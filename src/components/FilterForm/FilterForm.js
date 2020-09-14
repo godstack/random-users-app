@@ -1,15 +1,19 @@
 import React, { useState } from 'react';
 import './FilterForm.scss';
+import { useDispatch } from 'react-redux';
+import { filterSelectedUsers } from '../../redux/actions';
 
-export const FilterForm = ({ handleFilter }) => {
-  const [formData, setFormData] = useState({ firstName: '', lastName: '' });
+export const FilterForm = ({ filterArr, formData, setFormData }) => {
+  const dispatch = useDispatch();
 
-  const handleChange = e => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+  const handleChange = async e => {
+    await setFormData({ ...formData, [e.target.name]: e.target.value });
+    dispatch(filterSelectedUsers(formData));
   };
 
   return (
     <form className='ui-form'>
+      <div className='filter'>Type to Filter</div>
       <div className='form-row'>
         <input
           type='text'
@@ -30,9 +34,6 @@ export const FilterForm = ({ handleFilter }) => {
           placeholder='Last name'
         />
       </div>
-      <button onClick={handleFilter} className='filter-btn'>
-        Filter
-      </button>
     </form>
   );
 };
