@@ -2,22 +2,20 @@ import React from 'react';
 import { render } from 'react-dom';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import { createStore, compose, applyMiddleware } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 import { rootReducer } from './redux/rootReducer';
 import { Provider } from 'react-redux';
 import createSagaMiddleware from 'redux-saga';
-import './index.scss';
+import { composeWithDevTools } from 'redux-devtools-extension';
 import { fetchSagaWatcher } from './redux/sagas/fetchSaga';
 import { filterSagaWatcher } from './redux/sagas/filterSelectedSaga';
+import './index.scss';
 
 const saga = createSagaMiddleware();
 
 const store = createStore(
   rootReducer,
-  compose(
-    applyMiddleware(saga),
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-  )
+  composeWithDevTools(applyMiddleware(saga))
 );
 
 saga.run(fetchSagaWatcher);
