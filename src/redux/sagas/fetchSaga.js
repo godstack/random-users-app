@@ -1,17 +1,17 @@
 import { takeEvery, put, call } from 'redux-saga/effects';
 import { REQUEST_USERS, FETCH_USERS } from '../types';
-import { showLoader, hideLoader } from '../actions';
+import { showFetchingLoader, hideFetchingLoader } from '../actions';
 
 export function* fetchSagaWatcher() {
   yield takeEvery(REQUEST_USERS, sagaWorker);
 }
 
 function* sagaWorker() {
-  yield put(showLoader());
+  yield put(showFetchingLoader());
   const payload = yield call(fetchUsers);
 
   yield put({ type: FETCH_USERS, payload });
-  yield put(hideLoader());
+  yield put(hideFetchingLoader());
 }
 
 async function fetchUsers() {

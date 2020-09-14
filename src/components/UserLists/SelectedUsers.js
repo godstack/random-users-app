@@ -7,7 +7,7 @@ import { Loader } from '../Loader/Loader';
 
 export const SelectedUsers = () => {
   const users = useSelector(state => state.users.selectedUsers);
-  const loading = useSelector(state => state.app.loading);
+  const loading = useSelector(state => state.app.loadingForSelected);
   const [formData, setFormData] = useState({ firstName: '', lastName: '' });
 
   const filteredUsersList = users
@@ -25,7 +25,7 @@ export const SelectedUsers = () => {
       <h2 className='user-list__title'>Selected users</h2>
       {users.length !== 0 && (
         <FilterForm
-          filterArr={'selectedUsers'}
+          filterType={'selectedUsers'}
           formData={formData}
           setFormData={setFormData}
         />

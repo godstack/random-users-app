@@ -1,14 +1,19 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './FilterForm.scss';
 import { useDispatch } from 'react-redux';
-import { filterSelectedUsers } from '../../redux/actions';
+import { filterSelectedUsers, filterFetchedUsers } from '../../redux/actions';
 
-export const FilterForm = ({ filterArr, formData, setFormData }) => {
+export const FilterForm = ({ filterType, formData, setFormData }) => {
   const dispatch = useDispatch();
 
   const handleChange = async e => {
     await setFormData({ ...formData, [e.target.name]: e.target.value });
-    dispatch(filterSelectedUsers(formData));
+
+    if (filterType === 'fetchedUsers') {
+      dispatch(filterFetchedUsers(formData));
+    } else if (filterType === 'selectedUsers') {
+      dispatch(filterSelectedUsers(formData));
+    }
   };
 
   return (

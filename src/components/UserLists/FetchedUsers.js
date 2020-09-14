@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { User } from '../User/User';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchUsers, filterFetchedUsers } from '../../redux/actions';
+import { fetchUsers } from '../../redux/actions';
 import { Loader } from '../Loader/Loader';
 import { FilterForm } from '../FilterForm/FilterForm';
 import './UserList.scss';
@@ -9,7 +9,7 @@ import './UserList.scss';
 export const FetchedUsers = () => {
   const dispatch = useDispatch();
   const users = useSelector(state => state.users.fetchedUsers);
-  const loading = useSelector(state => state.app.loading);
+  const loading = useSelector(state => state.app.loadingForFetched);
 
   const [formData, setFormData] = useState({ firstName: '', lastName: '' });
 
@@ -28,7 +28,7 @@ export const FetchedUsers = () => {
       <h2 className='user-list__title'>Fetched users</h2>
       {users.length !== 0 && (
         <FilterForm
-          filterArr='fetchedUsers'
+          filterType='fetchedUsers'
           formData={formData}
           setFormData={setFormData}
         />

@@ -1,26 +1,40 @@
 import {
-  SHOW_LOADER,
-  HIDE_LOADER,
   REQUEST_USERS,
   SELECT_USER,
   UNSELECT_USER,
   FILTER_FETCHED_USERS,
-  FILTER_SELECTED_USERS
+  FILTER_SELECTED_USERS,
+  SHOW_LOADER_FETCHED,
+  HIDE_LOADER_FETCHED,
+  SHOW_LOADER_SELECTED,
+  HIDE_LOADER_SELECTED
 } from './types';
 
 export const fetchUsers = () => ({
   type: REQUEST_USERS
 });
 
-export const showLoader = () => {
+export const showFetchingLoader = () => {
   return {
-    type: SHOW_LOADER
+    type: SHOW_LOADER_FETCHED
   };
 };
 
-export const hideLoader = () => {
+export const hideFetchingLoader = () => {
   return {
-    type: HIDE_LOADER
+    type: HIDE_LOADER_FETCHED
+  };
+};
+
+export const showSelectingLoader = () => {
+  return {
+    type: SHOW_LOADER_SELECTED
+  };
+};
+
+export const hideSelectingLoader = () => {
+  return {
+    type: HIDE_LOADER_SELECTED
   };
 };
 
