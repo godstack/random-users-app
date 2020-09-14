@@ -1,4 +1,4 @@
-import { takeEvery, throttle, put, delay } from 'redux-saga/effects';
+import { throttle, put, delay } from 'redux-saga/effects';
 import {
   showFetchingLoader,
   hideFetchingLoader,
